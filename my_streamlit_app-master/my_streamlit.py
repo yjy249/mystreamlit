@@ -134,8 +134,8 @@ def main():
     st.sidebar.info(f'当前在线人数：{len(sessions)}')
     col1,col2=st.columns(2)
     video1,video2=get_video_bytes()
-    col1.video(video1, format='video/mp4', start_time=2)
-    col2.video(video2, format='video/mp4')
+    col1.video(video1, format='my_streamlit_app-master/video/mp4', start_time=2)
+    col2.video(video2, format='my_streamlit_app-master/video/mp4')
     # if session_ws is not None:
     #     session_headers = session_ws.request.headers
     #     if 'Windows' not in session_headers['User-Agent']:
@@ -145,7 +145,7 @@ def main():
     #         video1=get_video_bytes('开不了口')
     #         col1.video(video1)
     #         video2=get_video_bytes('最长的电影')
-    #         col2.video(video2, format='video/mp4')
+    #         col2.video(video2, format='my_streamlit_app-master/video/mp4')
     # else:
     #     st.info('Please refresh the page.')
 
@@ -159,7 +159,7 @@ def main():
     st.markdown('<br>',unsafe_allow_html=True)
     st.markdown('<br>',unsafe_allow_html=True)
     with st.expander("View Code"):
-        with open('my_streamlit.py','r') as f:
+        with open('my_streamlit_app-master/my_streamlit.py','r') as f:
             code=f.read()
         st.code(code,language="python")
 
@@ -339,17 +339,17 @@ def get_city_weather(cityId):
 
 @st.experimental_singleton
 def get_audio_bytes(music):
-    audio_file = open(f'music/{music}-周杰伦.mp3', 'rb')
+    audio_file = open(f'my_streamlit_app-master/music/{music}-周杰伦.mp3', 'rb')
     audio_bytes = audio_file.read()
     audio_file.close()
     return audio_bytes
 
 @st.experimental_singleton
 def get_video_bytes():
-    video_file = open(f'video/开不了口-广告曲.mp4', 'rb')
+    video_file = open(f'my_streamlit_app-master/video/开不了口-广告曲.mp4', 'rb')
     video_bytes1 = video_file.read()
     video_file.close()
-    video_file = open(f'video/最长的电影-广告曲.mp4', 'rb')
+    video_file = open(f'my_streamlit_app-master/video/最长的电影-广告曲.mp4', 'rb')
     video_bytes2 = video_file.read()
     video_file.close()
     return video_bytes1,video_bytes2
